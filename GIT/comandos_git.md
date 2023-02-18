@@ -18,6 +18,14 @@ El comando git status nos dice el estado de nuestro directorio de trabajo y nues
 `$git status`
 
 
+Add filename to the staging area
+
+`$git add <. | filename>`
+
+
+Create a new commit
+`$git commit -m “<message>”`
+
 
 
 
