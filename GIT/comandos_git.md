@@ -24,8 +24,28 @@ Add filename to the staging area
 
 
 Create a new commit
+
 `$git commit -m “<message>”`
 
 
+Show a list of commits in reverse chronological order
+
+`$git log`
 
 
+
+###   BRANCHES  
+
+`$git config --global init.defaultBranch “<branch_name”>`
+
+Create a branch
+
+`$git branch <new_branch_name>`
+
+Switch branches
+
+`$git switch <branch_name>`
+
+Create + switch
+
+`$git checkout -b <branch_name>`
