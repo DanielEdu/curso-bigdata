@@ -36,16 +36,20 @@ Show a list of commits in reverse chronological order
 
 ###   BRANCHES  
 
-`$git config --global init.defaultBranch “<branch_name”>`
+`git config --global init.defaultBranch “<branch_name”>`
 
 Create a branch
 
-`$git branch <new_branch_name>`
+`git branch <new_branch_name>`
 
 Switch branches
 
-`$git switch <branch_name>`
+`git switch <branch_name>`
 
 Create + switch
 
-`$git checkout -b <branch_name>`
+`git checkout -b <branch_name>`
+
+Integrate changes from one branch into another branch
+
+`git merge <branch>`
