@@ -53,3 +53,11 @@ Create + switch
 Integrate changes from one branch into another branch
 
 `git merge <branch>`
+
+
+### Repositorios Remotos (Github)
+
+Clone a Git remote repository 
+`git clone < https | ssh>`
+
+
