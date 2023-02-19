@@ -1,0 +1,4 @@
+{
+    "name": "Docker BigData_Project",
+    "dockerFile": "Dockerfile"
+}
