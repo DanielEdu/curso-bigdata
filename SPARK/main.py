@@ -21,6 +21,14 @@ df_pokemon = (
 df_pokemon.show(5,False)
 
 
-# Entry point for PySpark ETL application
+df1 = df_pokemon.filter(df_pokemon["Legendary"] == True)
+df1.show()
+
+df1.write.format("csv") \
+    .mode("overwrite") \
+    .option("header", "true") \
+    .save("/tmp/data/out")
+
+
 spark.stop()
 exit()
