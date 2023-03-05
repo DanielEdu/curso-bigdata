@@ -22,4 +22,3 @@
 ## Crear un job con Script Spark
 
 1. Seleccionar *Spark script editor*
-2. 

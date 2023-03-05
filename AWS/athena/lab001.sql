@@ -16,7 +16,7 @@ ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 STORED AS TEXTFILE
-LOCATION 's3://datalake-grupo01/landing/companies'
+LOCATION 's3://datalake-peru/landing/companies'
 TBLPROPERTIES(
     'skip.header.line.count'='1',
     'store.charset'='ISO-8859-1', 
@@ -28,7 +28,7 @@ SELECT * FROM landing.companies;
 
 
 -- Creamos la tabla para la de transacciones
-CREATE EXTERNAL TABLE landing.TRANSACCION(
+CREATE EXTERNAL TABLE landing.transactions(
 	ID_PERSONA STRING,
 	ID_EMPRESA STRING,
 	MONTO STRING,
@@ -38,7 +38,7 @@ ROW FORMAT DELIMITED
 FIELDS TERMINATED BY '|'
 LINES TERMINATED BY '\n'
 STORED AS TEXTFILE
-LOCATION 's3://datalake-grupo01/landing/transaccion'
+LOCATION 's3://datalake-peru/landing/transactions/'
 TBLPROPERTIES(
     'skip.header.line.count'='1',
     'store.charset'='ISO-8859-1', 
@@ -46,7 +46,7 @@ TBLPROPERTIES(
 );
 
 -- Imprimimos los datos para verificar
-SELECT * FROM landing.TRANSACCION;
+SELECT * FROM landing.transactions;
 
 
 
@@ -58,7 +58,7 @@ CREATE EXTERNAL TABLE bronze.companies(
 	empresa_name string
 )
 STORED AS PARQUET
-LOCATION 's3://datalake-grupo01/bronze/companies'
+LOCATION 's3://datalake-peru/bronze/companies'
 TBLPROPERTIES(
     'store.charset'='ISO-8859-1', 
     'retrieve.charset'='ISO-8859-1'
@@ -76,15 +76,16 @@ from landing.companies;
 ----
 
 -- Creamos la tabla en bronze
-CREATE EXTERNAL TABLE bronze.transaccion(
+CREATE EXTERNAL TABLE bronze.transactions(
     ID_PERSONA STRING,
 	ID_EMPRESA STRING,
 	MONTO DOUBLE,
 	FECHA STRING
 )
 STORED AS PARQUET
-LOCATION 's3://datalake-grupo01/bronze/transaccion'
+LOCATION 's3://datalake-peru/bronze/transactions'
 TBLPROPERTIES(
+    'skip.header.line.count'='1',
     'store.charset'='ISO-8859-1', 
     'retrieve.charset'='ISO-8859-1'
 );
