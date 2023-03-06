@@ -27,17 +27,17 @@ def writeDataToTopic(data):
 def run():
 	url = 'http://api.open-notify.org/iss-now.json'
 
-	dataFromSource = read_api(url)   
-	print(dataFromSource)  # Dictionary
+	# dataFromSource = read_api(url)   
+	# print(dataFromSource)  # Dictionary
 	
-	dataFormatted = convertDataToFormatProducer(dataFromSource)
-	print(dataFormatted)   # Str
+	# dataFormatted = convertDataToFormatProducer(dataFromSource)
+	# print(dataFormatted)   # Str
 
 	for n in range(0, 100000):
 		dataFromSource = read_api(url)
 		dataFormatted = convertDataToFormatProducer(dataFromSource)
-		print("Iteration # "+str(n))
 		writeDataToTopic(dataFormatted)
+		print("Iteration # "+str(n))
 		time.sleep(1)
 
 

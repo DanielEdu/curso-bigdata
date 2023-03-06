@@ -1,6 +1,5 @@
 # https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html
 from pyspark.sql import SparkSession
-from pyspark.sql.types import *
 import pyspark.sql.functions as f
 from schemas import sch_json
 
@@ -13,20 +12,23 @@ spark = (
 
 spark.sparkContext.setLogLevel('WARN')
 
-dfStream = spark.readStream.format("kafka").\
+df_s = spark.readStream.format("kafka").\
 option("kafka.bootstrap.servers", "localhost:9092").\
 option("subscribe", "quickstart-events").\
 option("startingOffsets", "latest").\
 load()
 
 
-dfStream_cast = dfStream.select(dfStream['value'].cast('string'), dfStream['offset'], dfStream['timestamp'])
-df = (dfStream_cast
-      .withColumn('json_data', f.from_json(dfStream_cast['value'], schema=sch_json))
-      .select('json_data','offset','timestamp','json_data.message')
+df_cast = df_s.select(df_s['value'].cast('string'), df_s['offset'], df_s['timestamp'])
+
+
+df_flat = (df_cast
+      .withColumn('json_data', f.from_json(df_cast['value'], schema=sch_json))
+      .select('json_data','offset','timestamp','json_data.message', 'json_data.timestamp')
     )
 
-query = (df
+
+query = (df_flat
     .writeStream
     .outputMode("update")
     .trigger(processingTime="5 seconds")

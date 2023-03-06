@@ -19,11 +19,11 @@ def writeDataToTopic(data):
 #Enviamos un mensaje
 writeDataToTopic(data)
 
-#Enviamos un mensaje
-writeDataToTopic("Esta es una prueba")
+# #Enviamos un mensaje
+# writeDataToTopic("Esta es una prueba")
 
-#Enviamos un mensaje
-writeDataToTopic("De escritura en un topico kafka")
+# #Enviamos un mensaje
+# writeDataToTopic("De escritura en un topico kafka")
 
-#Enviamos un mensaje
-writeDataToTopic('[{"ID_PERSONA": 89, "ID_EMPRESA": 4, "MONTO": 780}, {"ID_PERSONA": 66, "ID_EMPRESA": 5, "MONTO": 1447}, {"ID_PERSONA": 50, "ID_EMPRESA": 3, "MONTO": 736}]')
+# #Enviamos un mensaje
+# writeDataToTopic('[{"ID_PERSONA": 89, "ID_EMPRESA": 4, "MONTO": 780}, {"ID_PERSONA": 66, "ID_EMPRESA": 5, "MONTO": 1447}, {"ID_PERSONA": 50, "ID_EMPRESA": 3, "MONTO": 736}]')

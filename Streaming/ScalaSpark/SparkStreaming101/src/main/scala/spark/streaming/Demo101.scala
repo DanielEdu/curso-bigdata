@@ -1,10 +1,8 @@
 package spark.streaming
+
 import org.apache.spark.sql.streaming.Trigger
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{from_json, col}
-import org.apache.spark.sql.functions.{col, desc, sum}
-import org.apache.spark.sql.types.{StructType, StructField}
-import org.apache.spark.sql.types.{StringType, IntegerType, DoubleType, LongType}
 import Utils.{sparkInfo, sch_json}
 
 
@@ -35,7 +33,15 @@ object Demo101 extends  App {
 
   val df_final = dfStream_cast
     .withColumn("json_Data", from_json(col("value"),sch_json))
+    .select(
+      col("json_data"),
+      col("offset"),
+      col("timestamp"),
+      col("json_data.message"),
+      col("json_data.timestamp")
+    )
     .drop("value")
+
 
 
   val query = (df_final

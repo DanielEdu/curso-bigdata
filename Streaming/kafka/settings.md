@@ -78,5 +78,5 @@ $kafka-console-consumer.sh --topic quickstart-events --from-beginning --bootstra
 Enviar mensaje desde desde la shell mediante la consola del *producer*
 
 ```shell
-$echo echo Hola desde la consola | kafka-console-producer.sh --broker-list localhost:9092 --topic quickstart-events
+$echo Hola desde la consola | kafka-console-producer.sh --broker-list localhost:9092 --topic quickstart-events
 ```
