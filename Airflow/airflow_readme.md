@@ -8,9 +8,7 @@ $cd Airflow
 curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.2.5/docker-compose.yaml'
 ```
 
-```.../your_project_directory/Airflow```
-
-Initializing Environment
+**Initializing Environment**
 Before starting Airflow for the first time, You need to prepare your environment, i.e. create the necessary files, directories and initialize the database.
 
 Setting the right Airflow user
